@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 441498956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -160,7 +160,7 @@ MonoBehaviour:
   curveTilePrefab: {fileID: 1701864721666566, guid: c1b256cbebad7674391993b5258def75,
     type: 2}
   plusPrefab: {fileID: 1622725658915242, guid: ad2fd11b40a8e314cbc6d4784b47e9da, type: 2}
-  tileSize: {x: 2, y: 2}
+  tileSize: {x: 1.64, y: 1.57}
 --- !u!1 &527040442
 GameObject:
   m_ObjectHideFlags: 0
