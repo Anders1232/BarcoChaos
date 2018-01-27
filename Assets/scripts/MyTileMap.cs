@@ -7,15 +7,22 @@ public class MyTileMap : MonoBehaviour {
 	public GameObject lineTilePrefab;
 	public GameObject curveTilePrefab;
 	public GameObject plusPrefab;
-	private int [,] tileMap= new int[,]{{0,1, 2, 3},
-										{1, 2, 3, 0},
-										{2, 3, 0, 1},
-										{3, 0, 1, 2}};
+	public GameObject doubleCurvePrefab;
+	private int [,] tileMap= new int[,]{{0,1, 2, 3, 4, 0, 1, 2, 3, 4},
+										{1, 2, 3, 4, 0, 1, 2, 3, 4, 0},
+										{2, 3, 4, 0, 1, 2, 3, 4, 0, 1},
+										{3, 4, 0, 1, 2, 3, 4, 0, 1, 2},
+										{4, 0, 1, 2, 3, 4, 0, 1, 2, 3},
+										{0,1, 2, 3, 4, 0, 1, 2, 3, 4},
+										{1, 2, 3, 4, 0, 1, 2, 3, 4, 0},
+										{2, 3, 4, 0, 1, 2, 3, 4, 0, 1},
+										{3, 4, 0, 1, 2, 3, 4, 0, 1, 2},
+										{4, 0, 1, 2, 3, 4, 0, 1, 2, 3}};
 	private GameObject[] tiles;
 	public Vector2 tileSize;
 	// Use this for initialization
 	void Start () {
-		GameObject[] tempTiles= new GameObject[]{emptyTilePrefab, lineTilePrefab, curveTilePrefab, plusPrefab};
+		GameObject[] tempTiles= new GameObject[]{emptyTilePrefab, lineTilePrefab, curveTilePrefab, plusPrefab, doubleCurvePrefab};
 		tiles = new GameObject[tileMap.Length * tileMap.GetLength(0)];
 		int tileCounter = 0;
 		for(int i=0; i < tileMap.GetLength(0); i++){
@@ -26,6 +33,7 @@ public class MyTileMap : MonoBehaviour {
 				GameObject newGO= GameObject.Instantiate(tempTiles[tileCode], gameObject.transform, false) as GameObject;
 				tiles[tileCounter++]= newGO;
 				newGO.transform.localPosition= new Vector3(i*tileSize.x, (j *tileSize.y), newGO.transform.localPosition.z);
+				AjustScale (newGO);
 			}
 		}
 	}
@@ -47,5 +55,16 @@ public class MyTileMap : MonoBehaviour {
 			Vector3 mousePos = Camera.main.ScreenPointToRay (Input.mousePosition).origin-transform.position;
 			GetPipeClicked(new Vector2(mousePos.x, mousePos.y)).GetComponent<Pipe>().Rotate();
 		}
+	}
+
+	void AjustScale (GameObject tile){
+		Sprite aux= tile.GetComponent<SpriteRenderer>().sprite;
+		if (null == aux)
+			return;
+		Vector4 temp= aux.border;
+//		Vector2 spriteSize = new Vector2 (temp.z - aux.bounds.size, temp.w - temp.y);
+		Vector2 spriteSize = new Vector2 (aux.bounds.size.x/2, aux.bounds.size.y/2);
+		Debug .Log(spriteSize);
+		tile.transform.localScale= new Vector3(spriteSize.x/tileSize.x, spriteSize.y/tileSize.y);
 	}
 }

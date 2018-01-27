@@ -52,8 +52,6 @@ public class Pipe : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<Button> ().onClick.Invoke ();
-//		Rotate();
 	}
 	
 	// Update is called once per frame
