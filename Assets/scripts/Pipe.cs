@@ -43,9 +43,11 @@ public class Pipe : MonoBehaviour {
 
 	public void Rotate()
 	{
-		lastDirection = PipeOrientation ();
-		rotating = true;
-		Debug.Log ("Rotate called!");
+		if (!rotating) {
+			lastDirection = PipeOrientation ();
+			rotating = true;
+			Debug.Log ("Rotate called!");
+		}
 	}
 
 	// Use this for initialization
@@ -62,7 +64,7 @@ public class Pipe : MonoBehaviour {
 			angle += deltaAngle;
 			Vector3 currentRotation = gameObject.transform.localRotation.eulerAngles;
 			float newAngle = currentRotation.z + deltaAngle;
-			Debug.Log (deltaAngle);
+//			Debug.Log (deltaAngle);
 			if (Mathf.CeilToInt (currentRotation.z) / 90 != Mathf.CeilToInt (newAngle) / 90) {
 				if (lastDirection == Direction.UP) {
 					angle = 90;

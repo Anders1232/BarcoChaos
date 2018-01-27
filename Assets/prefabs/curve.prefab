@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipeType: 1
-  rotateSpeed: 5
+  rotateSpeed: 50
 --- !u!114 &114852303970735442
 MonoBehaviour:
   m_ObjectHideFlags: 1

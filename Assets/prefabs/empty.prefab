@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipeType: 3
-  rotateSpeed: 5
+  rotateSpeed: 50
 --- !u!212 &212197510831596508
 SpriteRenderer:
   m_ObjectHideFlags: 1
