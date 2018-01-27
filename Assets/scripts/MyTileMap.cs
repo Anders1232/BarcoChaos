@@ -11,23 +11,26 @@ public class MyTileMap : MonoBehaviour {
 	public GameObject lineTileFixaPrefab;		// 5
 	public GameObject curveTileFixaPrefab;		// 6
 	public GameObject doubleCurveFixaPrefab;	// 7
+	public GameObject lineTileFixaPrefabHorizontal;		// 8
 
-	private int [,] tileMap= new int[,]{{1, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 7, 0},
-										{1, 1, 3, 4, 7, 1, 2, 3, 4, 4, 5, 6, 7, 0},
-										{1, 1, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0, 7, 0},
-										{3, 4, 0, 0, 0, 0, 4, 6, 0, 0, 0, 0, 7, 0},
-										{4, 5, 0, 0, 0, 0, 6, 1, 0, 0, 0, 0, 7, 0},
-										{5, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 7, 0},
-										{5, 1, 2, 3, 4, 6, 1, 2, 1, 2, 3, 4, 7, 0},
-										{5, 1, 2, 3, 4, 6, 1, 2, 3, 4, 5, 6, 7, 0},
-										{5, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 7, 0},
-										{5, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 7, 0},
-										{5, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 7, 0},
-										{1, 2, 0, 0, 0, 0, 2, 3, 0, 0, 0, 0, 7, 0},
-										{2, 3, 4, 7, 1, 2, 3, 4, 5, 4, 5, 6, 7, 0},
-										{4, 5, 1, 2, 3, 4, 5, 1, 2, 4, 5, 6, 7, 0}};
+
+
+	private int [,] tileMap= new int[,]{{1, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 7, 1},
+										{1, 1, 3, 4, 7, 1, 2, 3, 4, 4, 5, 6, 7, 1},
+										{1, 1, 0, 0, 0, 0, 3, 4, 0, 0, 0, 0, 7, 1},
+										{3, 4, 0, 0, 0, 0, 4, 6, 0, 0, 0, 0, 7, 1},
+										{4, 5, 0, 0, 0, 0, 6, 1, 0, 0, 0, 0, 7, 1},
+										{5, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 7, 1},
+										{5, 1, 8, 8, 8, 8, 1, 2, 8, 8, 8, 8, 7, 1},
+										{5, 1, 2, 3, 4, 6, 1, 2, 3, 4, 5, 6, 7, 1},
+										{5, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 7, 1},
+										{5, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 7, 1},
+										{5, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 7, 1},
+										{1, 2, 0, 0, 0, 0, 2, 3, 0, 0, 0, 0, 7, 1},
+										{2, 3, 8, 8, 8, 8, 3, 4, 8, 8, 8, 8, 7, 1},
+										{4, 5, 1, 2, 3, 4, 5, 1, 2, 4, 5, 6, 7, 1}};
 	private int[,] tileMap2;
-	private GameObject[] tiles;
+	public GameObject[] tiles;
 	public Vector2 tileSize;
 	// Use this for initialization
 	void Start () {
@@ -38,7 +41,7 @@ public class MyTileMap : MonoBehaviour {
 			}
 		}
 		GameObject[] tempTiles= new GameObject[]{emptyTilePrefab, lineTilePrefab, curveTilePrefab, plusPrefab, doubleCurvePrefab, 
-												 lineTileFixaPrefab, curveTileFixaPrefab, doubleCurveFixaPrefab};
+			lineTileFixaPrefab, curveTileFixaPrefab, doubleCurveFixaPrefab, lineTileFixaPrefabHorizontal};
 		tiles = new GameObject[tileMap.Length * tileMap.GetLength(0)];
 		int tileCounter = 0;
 		for(int i=0; i < tileMap2.GetLength(0); i++){
@@ -84,4 +87,5 @@ public class MyTileMap : MonoBehaviour {
 		tile.transform.localScale= new Vector3(spriteSize.x/tileSize.x*0.32f, spriteSize.y/tileSize.y*0.32f);
 //		tile.transform.localScale= new Vector3(spriteSize.x, spriteSize.y);
 	}
+
 }
