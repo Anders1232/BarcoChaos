@@ -162,7 +162,7 @@ MonoBehaviour:
   plusPrefab: {fileID: 1622725658915242, guid: ad2fd11b40a8e314cbc6d4784b47e9da, type: 2}
   doubleCurvePrefab: {fileID: 1622725658915242, guid: 1f0ff853bbf3e1a4e8058a2abf4d6826,
     type: 2}
-  tileSize: {x: 1, y: 1}
+  tileSize: {x: 0.905, y: 0.905}
 --- !u!1 &527040442
 GameObject:
   m_ObjectHideFlags: 0
