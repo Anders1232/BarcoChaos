@@ -50,7 +50,7 @@ public class MyTileMap : MonoBehaviour {
 		int indexX = Mathf.FloorToInt( (position.x+tileSize.x/2) / tileSize.x);
 		int indexY = Mathf.FloorToInt( (position.y+tileSize.y/2) / tileSize.y);
 
-		Debug.Log (new Vector2 (indexX, indexY));
+//		Debug.Log (new Vector2 (indexX, indexY));
 		return tiles [indexX * tileMap.GetLength (0) + indexY];
 	}
 	
@@ -69,7 +69,7 @@ public class MyTileMap : MonoBehaviour {
 		Vector4 temp= aux.border;
 //		Vector2 spriteSize = new Vector2 (temp.z - aux.bounds.size, temp.w - temp.y);
 		Vector2 spriteSize = new Vector2 (aux.bounds.size.x/8, aux.bounds.size.y/8);
-		Debug.Log("spriteSize = " + spriteSize);
+//		Debug.Log("spriteSize = " + spriteSize);
 		tile.transform.localScale= new Vector3(spriteSize.x/tileSize.x, spriteSize.y/tileSize.y);
 	}
 }

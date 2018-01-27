@@ -46,7 +46,7 @@ public class Pipe : MonoBehaviour {
 		if (!rotating) {
 			lastDirection = PipeOrientation ();
 			rotating = true;
-			Debug.Log ("Rotate called!");
+//			Debug.Log ("Rotate called!");
 		}
 	}
 
