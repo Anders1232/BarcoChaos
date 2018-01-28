@@ -191,7 +191,7 @@ public class Pipe : MonoBehaviour {
 				return;
 			}
 			Debug.LogError ("Crash! Pipe type is " + pipeType + "\t Pipe orientation is " + PipeOrientation() + "\t msg direction is " + msg.currentDirection);
-//			SceneManager.LoadScene ("game_over");
+			SceneManager.LoadScene ("game_over");
 //			Application.Quit ();
 		}
 	}

@@ -19,6 +19,11 @@ public class Message : MonoBehaviour {
 	public Pipe.Direction currentDirection;
 //	private bool starting;
 	public float speed;
+	public SpriteRenderer sr;
+	public Sprite spMsgPraAlmirante;
+	public Sprite spMsgPraImediato;
+	public Sprite spMsgPraCozinheiro;
+	public Sprite spMsgPraEngenheiro;
 
 	private Pipe currentPipe;
 	// Use this for initialization
@@ -28,11 +33,12 @@ public class Message : MonoBehaviour {
 //		starting = true;
 //		speed = (tiles [currentTile].transform.position - gameObject.transform.position) / timePerTile;
 		rb= GetComponent<Rigidbody2D>();
+		sr = GetComponent<SpriteRenderer> ();
 		rb.velocity = new Vector2 (speed, 0);
 	}
 
 	public void SetDestiny(Vector2 destiny){
-		
+//		sr.
 	}
 	
 	// Update is called once per frame
