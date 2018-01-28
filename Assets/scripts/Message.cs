@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Message : MonoBehaviour {
 	public Rigidbody2D rb;
-	private GameObject[] tiles;
+//	private GameObject[] tiles;
 	public enum Crew{
 		ALMIRANTE,
 		IMEDIATO,
@@ -23,7 +23,7 @@ public class Message : MonoBehaviour {
 	private Pipe currentPipe;
 	// Use this for initialization
 	void Start () {
-		tiles = GameObject.FindGameObjectWithTag ("GameController").GetComponent<MyTileMap>().tiles;
+//		tiles = GameObject.FindGameObjectWithTag ("GameController").GetComponent<MyTileMap>().tiles;
 //		currentTileEnterTimeSpan = Time.time;
 //		starting = true;
 //		speed = (tiles [currentTile].transform.position - gameObject.transform.position) / timePerTile;

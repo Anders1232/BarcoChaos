@@ -53,6 +53,7 @@ public class Pipe : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		angle = gameObject.transform.localRotation.eulerAngles.z;
 	}
 	
 	// Update is called once per frame
@@ -84,120 +85,114 @@ public class Pipe : MonoBehaviour {
 			}
 		}
 	}
+	private void GoUp(Message msg){
+		msg.rb.velocity = new Vector2 (0, msg.speed);
+		msg.currentDirection = Direction.UP;
+	}
+	private void GoDown(Message msg){
+		msg.rb.velocity = new Vector2 (0, -msg.speed);
+		msg.currentDirection = Direction.DOWN;
+	}
+	private void GoLeft(Message msg){
+		msg.rb.velocity = new Vector2 (-msg.speed, 0);
+		msg.currentDirection = Direction.LEFT;
+	}
+	private void GoRight(Message msg){
+		msg.rb.velocity = new Vector2 (+msg.speed, 0);
+		msg.currentDirection = Direction.RIGHT;
+	}
 	public void OnTriggerEnter2D(Collider2D col){
-		Debug.Log ("Pipe::OnTrigerEnter called! Pipe orientation is " +  PipeOrientation());
+//		Debug.Log ("Pipe::OnTrigerEnter called! Pipe orientation is " +  PipeOrientation());
 		if (PipeOrientation () == Direction.INVALID) {
 			Debug.LogError ("Pipe was rotating!");
 			Application.Quit ();
 		}
 		if (col.gameObject.tag == "Message") {
 			Message msg = col.gameObject.GetComponent<Message> ();
+//			Debug.Log ("Pipe type is " + pipeType + "\t Pipe orientation is " + PipeOrientation() + "\t msg direction is " + msg.currentDirection);
 			if (pipeType == PipeType.curve) {
 				if (PipeOrientation () == Direction.LEFT) {
 					Debug.Log ("Pipe orientation is " + PipeOrientation ());
 					if (msg.currentDirection == Direction.RIGHT) {//deve ir para cima
-						msg.rb.velocity = new Vector2 (0, msg.speed);
-						msg.currentDirection = Direction.UP;
+						GoUp(msg);
 						return;
 					} else if (msg.currentDirection == Direction.DOWN) {//deve ir para esquerda
-						msg.rb.velocity = new Vector2 (-msg.speed, 0);
-						msg.currentDirection = Direction.LEFT;
+						GoLeft(msg);
 						return;
 					}
 				} else if (PipeOrientation () == Direction.UP) {
 					if (msg.currentDirection == Direction.DOWN) {//deve ir para a direita
-						msg.rb.velocity = new Vector2 (+msg.speed, 0);
-						msg.currentDirection = Direction.RIGHT;
+						GoRight(msg);
 						return;
 					} else if (msg.currentDirection == Direction.LEFT) {
-						col.gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, msg.speed);
-						msg.currentDirection = Direction.UP;
+						GoUp(msg);
 						return;
 					}
 				} else if (PipeOrientation () == Direction.RIGHT) {
 					if (msg.currentDirection == Direction.UP) {//deve ir para a direita
-						msg.rb.velocity = new Vector2 (msg.speed, 0);
-						msg.currentDirection = Direction.RIGHT;
+						GoRight(msg);
 						return;
 					} else if (msg.currentDirection == Direction.LEFT) {
-						msg.rb.velocity = new Vector2 (0, -msg.speed);
-						msg.currentDirection = Direction.DOWN;
+						GoDown (msg);
 						return;
 					}
 				} else if (PipeOrientation () == Direction.DOWN) {
 					if (msg.currentDirection == Direction.UP) {//deve ir para a direita
-						msg.rb.velocity = new Vector2 (-msg.speed, 0);
-						msg.currentDirection = Direction.LEFT;
+						GoLeft(msg);
 						return;
 					} else if (msg.currentDirection == Direction.RIGHT) {
-						msg.rb.velocity = new Vector2 (0, -msg.speed);
-						msg.currentDirection = Direction.DOWN;
+						GoDown (msg);
 						return;
 					}
 				}
 			} else if (pipeType == PipeType.doubleCurve) {
 				if (PipeOrientation () == Direction.UP || PipeOrientation () == Direction.DOWN) {
 					if (msg.currentDirection == Direction.UP) {//deve ir para a direita
-						msg.rb.velocity = new Vector2 (msg.speed, 0);
-						msg.currentDirection = Direction.RIGHT;
+						GoRight(msg);
 						return;
 					} else if (msg.currentDirection == Direction.RIGHT) {
-						msg.rb.velocity = new Vector2 (0, msg.speed);
-						msg.currentDirection = Direction.UP;
+						GoUp(msg);
 						return;
 					} else if (msg.currentDirection == Direction.DOWN) {
-						msg.rb.velocity = new Vector2 (-msg.speed, 0);
-						msg.currentDirection = Direction.LEFT;
+						GoLeft(msg);
 						return;
 					} else if (msg.currentDirection == Direction.LEFT) {
-						msg.rb.velocity = new Vector2 (0, -msg.speed);
-						msg.currentDirection = Direction.DOWN;
+						GoDown (msg);
 						return;
 					}
 				} else if (PipeOrientation () == Direction.LEFT || PipeOrientation () == Direction.RIGHT) {
 					if (msg.currentDirection == Direction.UP) {//deve ir para a direita
-						msg.rb.velocity = new Vector2 (-msg.speed, 0);
-						msg.currentDirection = Direction.LEFT;
+						GoLeft(msg);
 						return;
 					} else if (msg.currentDirection == Direction.RIGHT) {
-						msg.rb.velocity = new Vector2 (0, -msg.speed);
-						msg.currentDirection = Direction.DOWN;
+						GoDown (msg);
 						return;
 					} else if (msg.currentDirection == Direction.DOWN) {
-						msg.rb.velocity = new Vector2 (msg.speed, 0);
-						msg.currentDirection = Direction.RIGHT;
+						GoRight(msg);
 						return;
 					} else if (msg.currentDirection == Direction.LEFT) {
-						msg.rb.velocity = new Vector2 (0, msg.speed);
-						msg.currentDirection = Direction.UP;
+						GoUp(msg);
 						return;
 					}
 					Debug.Log ("não implementado");
 				}
 			} else if (pipeType == PipeType.straight) {
 				if (PipeOrientation () == Direction.UP || PipeOrientation () == Direction.DOWN) {
-					if (msg.currentDirection == Direction.RIGHT || msg.currentDirection == Direction.LEFT) {
-						//SceneManager.LoadScene ("game_over");
-						Debug.LogError ("Crash!");
-						Application.Quit ();
+					if (msg.currentDirection == Direction.UP || msg.currentDirection == Direction.DOWN) {
 						return;
 					}
 				}
-				if (PipeOrientation () == Direction.RIGHT || PipeOrientation () == Direction.LEFT) {
-					if (msg.currentDirection == Direction.UP || msg.currentDirection == Direction.DOWN) {
-						//SceneManager.LoadScene ("game_over");
-						Debug.LogError ("Crash!");
-						Application.Quit ();
+				else if (PipeOrientation () == Direction.RIGHT || PipeOrientation () == Direction.LEFT) {
+					if (msg.currentDirection == Direction.RIGHT || msg.currentDirection == Direction.LEFT) {
 						return;
 					}
 				}
 			} else if (pipeType == PipeType.plus) {
 				return;
-			} else {
-				// SceneManager.LoadScene ("game_over");
-				Debug.LogError ("Crash! Pipe type is " + pipeType + "\t Pipe orientation is " + PipeOrientation() + "\t msg direction is " + msg.currentDirection);
-				Application.Quit ();
 			}
+			Debug.LogError ("Crash! Pipe type is " + pipeType + "\t Pipe orientation is " + PipeOrientation() + "\t msg direction is " + msg.currentDirection);
+//			SceneManager.LoadScene ("game_over");
+//			Application.Quit ();
 		}
 	}
 }
