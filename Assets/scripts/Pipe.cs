@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Pipe : MonoBehaviour {
 
@@ -176,6 +177,7 @@ public class Pipe : MonoBehaviour {
 			} else if (pipeType == PipeType.straight) {
 				if (PipeOrientation () == Direction.UP || PipeOrientation () == Direction.DOWN) {
 					if (msg.currentDirection == Direction.RIGHT || msg.currentDirection == Direction.LEFT) {
+						//SceneManager.LoadScene ("game_over");
 						Debug.LogError ("Crash!");
 						Application.Quit ();
 						return;
@@ -183,6 +185,7 @@ public class Pipe : MonoBehaviour {
 				}
 				if (PipeOrientation () == Direction.RIGHT || PipeOrientation () == Direction.LEFT) {
 					if (msg.currentDirection == Direction.UP || msg.currentDirection == Direction.DOWN) {
+						//SceneManager.LoadScene ("game_over");
 						Debug.LogError ("Crash!");
 						Application.Quit ();
 						return;
@@ -191,6 +194,7 @@ public class Pipe : MonoBehaviour {
 			} else if (pipeType == PipeType.plus) {
 				return;
 			} else {
+				// SceneManager.LoadScene ("game_over");
 				Debug.LogError ("Crash! Pipe type is " + pipeType + "\t Pipe orientation is " + PipeOrientation() + "\t msg direction is " + msg.currentDirection);
 				Application.Quit ();
 			}

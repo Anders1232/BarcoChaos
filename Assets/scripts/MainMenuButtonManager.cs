@@ -15,13 +15,13 @@ public class MainMenuButtonManager : MonoBehaviour {
 		Application.Quit();
 	}
 
-	public void CreditsButton()
+	public void CreditsButton(string creditsLevel)
 	{
-		Debug.Log ("Credits funfou!");
+		SceneManager.LoadScene (creditsLevel);
 	}
 
-	public void ScoreButton()
+	public void ScoreButton(string scoreLevel)
 	{
-		Debug.Log ("Tabela Score funfou!");
+		SceneManager.LoadScene (scoreLevel);
 	}
 }

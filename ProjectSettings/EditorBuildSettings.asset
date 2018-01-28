@@ -11,3 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/first.unity
     guid: 865526d4f153a4cb9983f1ef29aee81e
+  - enabled: 1
+    path: Assets/_Scenes/game_over.unity
+    guid: e7c7ef80a6dc6d747aba01454490c54a
+  - enabled: 1
+    path: Assets/_Scenes/credits.unity
+    guid: b95cbfcab0489a54c8fb194b16485ea3
+  - enabled: 1
+    path: Assets/_Scenes/score.unity
+    guid: b03af86ccd8fbba4d9a359581f901986
