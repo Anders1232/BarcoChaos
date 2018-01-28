@@ -28,42 +28,47 @@ public class Message : MonoBehaviour {
 	private Pipe currentPipe;
 	// Use this for initialization
 	void Start () {
-//		tiles = GameObject.FindGameObjectWithTag ("GameController").GetComponent<MyTileMap>().tiles;
-//		currentTileEnterTimeSpan = Time.time;
-//		starting = true;
-//		speed = (tiles [currentTile].transform.position - gameObject.transform.position) / timePerTile;
 		rb= GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer> ();
-		rb.velocity = new Vector2 (speed, 0);
 	}
 
-	public void SetDestiny(Vector2 destiny){
-//		sr.
+	public void Init(Crew origin, Crew destiny){
+		this.origin = origin;
+		this.destiny = destiny;
+		Vector2 firstPipe= new Vector2(0f, 0f);
+		if (origin == Crew.ALMIRANTE) {
+			firstPipe = new Vector2 (-2.455f, 1.8f);
+		}
+		else if (origin == Crew.IMEDIATO) {
+			firstPipe = new Vector2 (0.545f, 1.8f);
+		}
+		else if (origin == Crew.ENGENHEIRO) {
+			firstPipe = new Vector2 (-2.455f, -1.2f);
+		}
+		else if (origin == Crew.COZINHEIRO) {
+			firstPipe = new Vector2 (0.545f, -1.2f);
+		}
+		if (destiny == Crew.ALMIRANTE) {
+			sr.sprite = spMsgPraAlmirante;
+		}
+		else if (destiny == Crew.IMEDIATO) {
+			sr.sprite = spMsgPraImediato;
+		}
+		else if (destiny == Crew.ENGENHEIRO) {
+			sr.sprite = spMsgPraEngenheiro;
+		}
+		else if (destiny == Crew.COZINHEIRO) {
+			sr.sprite = spMsgPraCozinheiro;
+		}
+		Vector2 msgPos = new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y);
+		Vector2 myVelocity = ( (firstPipe - msgPos).normalized) * speed;
+		Debug.Log (firstPipe + " " + myVelocity);
+		rb.velocity = myVelocity;
+		currentDirection = Pipe.Direction.LEFT;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-/*		if (starting) {
-			transform.position = transform.position + speed * Time.deltaTime;
-			if (Time.time - currentTileEnterTimeSpan > timePerTile) {		//hora de entrar no próx tile
-				starting = false;
-				currentTileEnterTimeSpan = Time.time;
-				currentPipe = tiles [currentTile].GetComponent<Pipe> ();
-			}
-		} else {
-			if (Pipe.Direction.INVALID == currentPipe.PipeOrientation ()) {
-				Debug.Log ("Vc falhou!");
-				Application.Quit ();
-			}
-			else if(speed.y>0 ){// está descendo
-				
-			}
-			else if (Pipe.PipeType.curve == currentPipe.pipeType) {
-			} else if (Pipe.PipeType.doubleCurve == currentPipe.pipeType) {
-			} else if (Pipe.PipeType.plus == currentPipe.pipeType) {
-			} else if (Pipe.PipeType.straight == currentPipe.pipeType) {
-			} else {
-			}
-		}*/
+
 	}
 }

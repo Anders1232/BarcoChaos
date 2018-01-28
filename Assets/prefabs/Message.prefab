@@ -93,7 +93,7 @@ MonoBehaviour:
   origin: 0
   destiny: 0
   currentDirection: 1
-  speed: 0.05
+  speed: 0.25
   sr: {fileID: 212086816477578478}
   spMsgPraAlmirante: {fileID: 21300000, guid: 44d3a2b1d6887a34b9cbb6d81d21f4e5, type: 3}
   spMsgPraImediato: {fileID: 21300000, guid: e7903fcef1ae9b74b99d3c2943a54e0f, type: 3}
