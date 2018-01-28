@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 236719256}
   m_Layer: 0
   m_Name: ScorePoints
-  m_TagString: Untagged
+  m_TagString: ScoreGO
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4c5bcb84ba5c745a7bb131ab86f9e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 
 --- !u!4 &236719257
 Transform:
   m_ObjectHideFlags: 0
@@ -382,6 +381,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &267909038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 267909040}
+  - component: {fileID: 267909039}
+  m_Layer: 0
+  m_Name: StopMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &267909039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267909038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503d1545be01c594189f6f921afe546a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 
+  eleMesmo: {fileID: 1744117696}
+--- !u!4 &267909040
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267909038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.1448803, y: -1.3142169, z: -0.10042075}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &309547541
 GameObject:
@@ -1250,5 +1291,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db782282f2d4c704c97a7a6d4ee2d854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 
-  eleMesmo: {fileID: 1744117696}

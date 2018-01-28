@@ -233,8 +233,8 @@ MonoBehaviour:
   engenheiroBalloon: {fileID: 21300000, guid: a3cd03748d5abd449a20eec2b1e50067, type: 3}
   crewMember: 3
   timeSinceLastTry: 0
-  timeBetweenTries: 2
-  messageRatio: 0.5
+  timeBetweenTries: 3
+  messageRatio: 0.15
   sr: {fileID: 145294220}
   timeBalloonIsShowing: 0
   timeToShowBalloon: 5
@@ -365,6 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 392674437}
   - component: {fileID: 392674436}
+  - component: {fileID: 392674438}
   m_Layer: 0
   m_Name: SalaCozinheiro
   m_TagString: Untagged
@@ -434,6 +435,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &392674438
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 392674435}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.5, y: 4.5}
+  m_EdgeRadius: 0
 --- !u!1 &412846345
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +560,9 @@ GameObject:
   m_Component:
   - component: {fileID: 441498957}
   - component: {fileID: 441498958}
+  - component: {fileID: 441498959}
+  - component: {fileID: 441498960}
+  - component: {fileID: 441498961}
   m_Layer: 0
   m_Name: Utilities
   m_TagString: GameController
@@ -584,6 +613,52 @@ MonoBehaviour:
     type: 2}
   tiles: []
   tileSize: {x: 0.5, y: 0.5}
+--- !u!68 &441498959
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 441498956}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.15
+  m_Points:
+  - {x: -0.5530176, y: -0.55381656}
+  - {x: -0.53739715, y: 7.064293}
+  - {x: 7.0250883, y: 7.0725613}
+  - {x: 7.017753, y: -0.59888554}
+  - {x: -0.53781414, y: -0.5354066}
+--- !u!114 &441498960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 441498956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6eda0def1634844cb0b600e40d6485d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &441498961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 441498956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024b05de389984b4a8bd4306f3786db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  correctDestinyPoints: 10
+  wrongDestinyPoints: -8
+  sc: {fileID: 0}
 --- !u!1 &501434200
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 583750248}
   - component: {fileID: 583750247}
+  - component: {fileID: 583750249}
   m_Layer: 0
   m_Name: SalaEngenheiro
   m_TagString: Untagged
@@ -816,6 +892,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &583750249
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 583750246}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.5, y: 4.5}
+  m_EdgeRadius: 0
 --- !u!1 &607212423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,8 +1292,8 @@ MonoBehaviour:
   engenheiroBalloon: {fileID: 21300000, guid: a3cd03748d5abd449a20eec2b1e50067, type: 3}
   crewMember: 2
   timeSinceLastTry: 0
-  timeBetweenTries: 2
-  messageRatio: 0.5
+  timeBetweenTries: 3
+  messageRatio: 0.15
   sr: {fileID: 918592892}
   timeBalloonIsShowing: 0
   timeToShowBalloon: 5
@@ -1405,8 +1506,8 @@ MonoBehaviour:
   engenheiroBalloon: {fileID: 21300000, guid: a3cd03748d5abd449a20eec2b1e50067, type: 3}
   crewMember: 0
   timeSinceLastTry: 0
-  timeBetweenTries: 2
-  messageRatio: 0.5
+  timeBetweenTries: 3
+  messageRatio: 0.15
   sr: {fileID: 1254952318}
   timeBalloonIsShowing: 0
   timeToShowBalloon: 5
@@ -1420,6 +1521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1298909908}
   - component: {fileID: 1298909907}
+  - component: {fileID: 1298909909}
   m_Layer: 0
   m_Name: SalaAlmirante
   m_TagString: Untagged
@@ -1489,6 +1591,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1298909909
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1298909906}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.5, y: 4.5}
+  m_EdgeRadius: 0
 --- !u!1 &1336216608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,6 +1917,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1427854708}
   - component: {fileID: 1427854707}
+  - component: {fileID: 1427854709}
+  - component: {fileID: 1427854710}
   m_Layer: 0
   m_Name: SalaImediato
   m_TagString: Untagged
@@ -1859,6 +1988,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1427854709
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1427854706}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.5, y: 4.5}
+  m_EdgeRadius: 0
+--- !u!114 &1427854710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1427854706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f9ff9cbec8a4fe4487905b52b4ce002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHappy: 0
+  happyDuration: 0
+  happyCounter: 0
+  isAngry: 0
+  angryDuration: 0
+  angryCounter: 0
+  score: {fileID: 0}
 --- !u!1 &1432713370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,8 +2315,8 @@ MonoBehaviour:
   engenheiroBalloon: {fileID: 21300000, guid: a3cd03748d5abd449a20eec2b1e50067, type: 3}
   crewMember: 1
   timeSinceLastTry: 0
-  timeBetweenTries: 2
-  messageRatio: 0.5
+  timeBetweenTries: 3
+  messageRatio: 0.15
   sr: {fileID: 2010461837}
   timeBalloonIsShowing: 0
   timeToShowBalloon: 5

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Message
+  - BalloonController
+  - ScoreGO
   layers:
   - Default
   - TransparentFX

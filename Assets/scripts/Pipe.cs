@@ -105,7 +105,8 @@ public class Pipe : MonoBehaviour {
 //		Debug.Log ("Pipe::OnTrigerEnter called! Pipe orientation is " +  PipeOrientation());
 		if (PipeOrientation () == Direction.INVALID) {
 			Debug.LogError ("Pipe was rotating!");
-			Application.Quit ();
+			SceneManager.LoadScene ("game_over");
+			//Application.Quit ();
 		}
 		if (col.gameObject.tag == "Message") {
 			Message msg = col.gameObject.GetComponent<Message> ();

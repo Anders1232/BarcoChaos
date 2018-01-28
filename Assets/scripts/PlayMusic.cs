@@ -5,18 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayMusic : MonoBehaviour {
 
-	public string currentLevel;
-	public GameObject eleMesmo;
-
 	// Use this for initialization
 	void Start () {
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		currentLevel = SceneManager.GetActiveScene().name;
-		if (currentLevel == "first")
-			eleMesmo.SetActive (false);
 	}
 
 	private static PlayMusic instance = null;
@@ -25,7 +19,6 @@ public class PlayMusic : MonoBehaviour {
 	}
 
 	void Awake() {
-		currentLevel = SceneManager.GetActiveScene().name;
 		if (instance != null && instance != this)
 		{
 			Destroy(this.gameObject);
@@ -34,7 +27,6 @@ public class PlayMusic : MonoBehaviour {
 			instance = this;
 		}
 
-		Debug.Log ("currentLevel = " + currentLevel);
 		DontDestroyOnLoad (this.gameObject);
 	}
 }

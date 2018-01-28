@@ -2,35 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
 
-public class Score : MonoBehaviour {
+public class StopMusic : MonoBehaviour {
 
-	public Array score;
+	public string currentLevel;
+	public GameObject eleMesmo;
 
 	// Use this for initialization
 	void Start () {
-		score = new int[6];
-//		score.
-		score.SetValue(0, 20);
-		score.SetValue(1, 16);
-		score.SetValue(2, 12);
-		score.SetValue(3, 10);
-		score.SetValue(4, 0);
-		score.SetValue(5, 0);
-	}
-
-	public void NewScore (int sc){
-		score.SetValue(5, sc);
-		Array.Sort (score);
 	}
 
 	// Update is called once per frame
 	void Update () {
+		currentLevel = SceneManager.GetActiveScene().name;
+		if (currentLevel == "game_over")
+			eleMesmo.SetActive (false);
+		if (currentLevel == "main_menu" || currentLevel == "first") {
+			eleMesmo.SetActive (true);
+		}
 	}
 
-	private static Score instance = null;
-	public static Score Instance {
+	private static StopMusic instance = null;
+	public static StopMusic Instance {
 		get { return instance; }
 	}
 
@@ -42,6 +35,7 @@ public class Score : MonoBehaviour {
 		} else {
 			instance = this;
 		}
+
 		DontDestroyOnLoad (this.gameObject);
 	}
 }
